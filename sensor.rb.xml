@@ -1,0 +1,58 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="0" y="74" name="cat1" costumes="cat3.png" angle="0"></character>
+  <character x="290" y="298" name="cat2" costumes="cat1.png" angle="0"></character>
+  <character x="396" y="264" name="frog1" costumes="frog1.png" angle="0"></character>
+  <block type="ruby_comment" x="-401" y="-297">
+    <field name="COMMENT">距離センサー</field>
+  </block>
+  <block type="hardware_init_hardware" x="-404" y="-246"></block>
+  <block type="character_new" x="-426" y="-178">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start">
+        <statement name="DO">
+          <block type="control_loop">
+            <statement name="DO">
+              <block type="motion_set_x" inline="true">
+                <value name="X">
+                  <block type="operators_minus" inline="true">
+                    <value name="A">
+                      <block type="hardware_sensor_value">
+                        <field name="PIN">A0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" x="-421" y="54">
+    <field name="NAME">cat2</field>
+    <statement name="DO">
+      <block type="events_on_start">
+        <statement name="DO">
+          <block type="control_loop">
+            <statement name="DO">
+              <block type="looks_say" inline="true">
+                <value name="TEXT">
+                  <block type="hardware_sensor_value">
+                    <field name="PIN">A0</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,144 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="268" y="248" name="cat1" costumes="cat1.png" angle="0"></character>
+  <block type="ruby_comment" x="-401" y="-297">
+    <field name="COMMENT">テルミン</field>
+  </block>
+  <block type="hardware_init_hardware" x="-403" y="-257"></block>
+  <block type="character_new" x="-398" y="-212">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start">
+        <statement name="DO">
+          <block type="control_loop">
+            <statement name="DO">
+              <block type="control_if" inline="true">
+                <value name="COND">
+                  <block type="operators_compare_lte" inline="true">
+                    <value name="A">
+                      <block type="hardware_sensor_value">
+                        <field name="PIN">A0</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">200</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" inline="true">
+                    <value name="TEXT">
+                      <block type="text">
+                        <field name="TEXT">ド</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="sound_play" inline="true">
+                        <value name="NAME">
+                          <block type="sound_preset_sounds">
+                            <field name="NAME">piano_do.wav</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="control_if" inline="true">
+                    <value name="COND">
+                      <block type="operators_and" inline="true">
+                        <value name="A">
+                          <block type="operators_compare_gt" inline="true">
+                            <value name="A">
+                              <block type="hardware_sensor_value">
+                                <field name="PIN">A0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="operators_compare_lte" inline="true">
+                            <value name="A">
+                              <block type="hardware_sensor_value">
+                                <field name="PIN">A0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">300</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_say" inline="true">
+                        <value name="TEXT">
+                          <block type="text">
+                            <field name="TEXT">レ</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="sound_play" inline="true">
+                            <value name="NAME">
+                              <block type="sound_preset_sounds">
+                                <field name="NAME">piano_re.wav</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_if" inline="true">
+                        <value name="COND">
+                          <block type="operators_compare_gt" inline="true">
+                            <value name="A">
+                              <block type="hardware_sensor_value">
+                                <field name="PIN">A0</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">300</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="looks_say" inline="true">
+                            <value name="TEXT">
+                              <block type="text">
+                                <field name="TEXT">ミ</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="sound_play" inline="true">
+                                <value name="NAME">
+                                  <block type="sound_preset_sounds">
+                                    <field name="NAME">piano_mi.wav</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
