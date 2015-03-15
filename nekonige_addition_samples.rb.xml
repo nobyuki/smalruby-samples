@@ -1,0 +1,281 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="200" y="138" name="car1" costumes="car2.png" angle="71" rotation_style="left_right"></character>
+  <character x="380" y="222" name="ball1" costumes="ball6.png" angle="0"></character>
+  <block type="character_new" id="1" x="5" y="5">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="2">
+        <statement name="DO">
+          <block type="control_loop" id="16">
+            <statement name="DO">
+              <block type="motion_move" id="47" inline="true">
+                <value name="STEP">
+                  <block type="math_number" id="48">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_turn_if_reach_wall" id="79"></block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="134" x="350" y="18">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_key_push_or_down" id="140">
+        <field name="KEY">K_H</field>
+        <field name="POD">push</field>
+        <statement name="DO">
+          <block type="looks_hide" id="402">
+            <next>
+              <block type="control_sleep" id="403" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="404">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_x_y" id="233" inline="true">
+                    <value name="X">
+                      <block type="operators_rand" id="267" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="268">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="269">
+                            <field name="NUM">544</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="Y">
+                      <block type="operators_rand" id="270" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="271">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="272">
+                            <field name="NUM">384</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="motion_point_towards_character" id="390">
+                        <field name="CHAR">car1</field>
+                        <next>
+                          <block type="looks_show" id="410"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="80" x="5" y="246">
+    <field name="NAME">ball1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="81">
+        <statement name="DO">
+          <block type="control_loop" id="102">
+            <statement name="DO">
+              <block type="motion_go_to_mouse" id="133"></block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="273" x="754" y="245">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_key_push_or_down" id="274">
+        <field name="KEY">K_D</field>
+        <field name="POD">push</field>
+        <statement name="DO">
+          <block type="looks_say" id="291" inline="true">
+            <value name="TEXT">
+              <block type="text" id="292">
+                <field name="TEXT">まてまて〜</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_point_towards_character" id="323">
+                <field name="CHAR">ball1</field>
+                <next>
+                  <block type="character_new" id="383">
+                    <field name="NAME">ball1</field>
+                    <statement name="DO">
+                      <block type="looks_say" id="385" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="386">
+                            <field name="TEXT">ひえ〜</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_sleep" id="337" inline="true">
+                        <value name="SEC">
+                          <block type="math_number" id="338">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="looks_say" id="381" inline="true">
+                            <value name="TEXT">
+                              <block type="text" id="382">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="character_new" id="387">
+                                <field name="NAME">ball1</field>
+                                <statement name="DO">
+                                  <block type="looks_say" id="388" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="389">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="892" x="323" y="306">
+    <field name="NAME">ball1</field>
+    <statement name="DO">
+      <block type="events_on_click" id="867">
+        <statement name="DO">
+          <block type="looks_say" id="873" inline="true">
+            <value name="TEXT">
+              <block type="text" id="874">
+                <field name="TEXT">ころころ</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_sleep" id="888" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="889">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="looks_say" id="890" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="891">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="428" x="9" y="453">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_key_push_or_down" id="456">
+        <field name="KEY">K_S</field>
+        <field name="POD">push</field>
+        <statement name="DO">
+          <block type="control_times" id="502" inline="true">
+            <value name="COUNT">
+              <block type="math_number" id="503">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="motion_move" id="487" inline="true">
+                <value name="STEP">
+                  <block type="math_number" id="488">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_await" id="562"></block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="control_sleep" id="547" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="548">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="598" x="285" y="538">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_key_push_or_down" id="599">
+        <field name="KEY">K_T</field>
+        <field name="POD">push</field>
+        <statement name="DO">
+          <block type="motion_set_angle" id="721" inline="true">
+            <value name="ANGLE">
+              <block type="operators_rand" id="723" inline="true">
+                <value name="A">
+                  <block type="math_number" id="724">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="725">
+                    <field name="NUM">359</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="control_sleep" id="605" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="606">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
