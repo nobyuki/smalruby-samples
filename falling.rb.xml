@@ -1,0 +1,337 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="60" y="0" name="cat1" costumes="cat1.png" angle="0"></character>
+  <character x="394" y="296" name="ball1" costumes="ball2.png" angle="0"></character>
+  <character x="0" y="384" name="frog1" costumes="frog1.png" angle="0"></character>
+  <character x="0" y="274" name="ball2" costumes="ball3.png" angle="0"></character>
+  <block type="variables_set" id="3" inline="true" x="-39" y="-151">
+    <field name="VAR">ゲームタイマー</field>
+    <value name="VALUE">
+      <block type="math_number" id="4">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="5" inline="true">
+        <field name="VAR">ねこタイマー</field>
+        <value name="VALUE">
+          <block type="math_number" id="6">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="character_new" id="22" x="-42" y="10">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="23">
+        <statement name="DO">
+          <block type="control_loop" id="24">
+            <statement name="DO">
+              <block type="motion_change_y_by" id="25" inline="true">
+                <value name="Y">
+                  <block type="math_number" id="26">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_if" id="27" inline="true">
+                    <value name="COND">
+                      <block type="operators_or" id="28" inline="true">
+                        <value name="A">
+                          <block type="sensing_hit" id="29">
+                            <field name="CHAR">ball1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="sensing_hit" id="30">
+                            <field name="CHAR">ball2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_say" id="31" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="32">
+                            <field name="TEXT">負けました…</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="control_break" id="33"></block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_if" id="34" inline="true">
+                        <value name="COND">
+                          <block type="operators_compare_gte" id="35" inline="true">
+                            <value name="A">
+                              <block type="motion_self_y" id="36"></block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="37">
+                                <field name="NUM">383</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="looks_say" id="38" inline="true">
+                            <value name="TEXT">
+                              <block type="text" id="39">
+                                <field name="TEXT">負けました…</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="control_break" id="40"></block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="control_if" id="41" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_gte" id="42" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="43">
+                                    <field name="VAR">ゲームタイマー</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="44">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_say" id="45" inline="true">
+                                <value name="TEXT">
+                                  <block type="text" id="46">
+                                    <field name="TEXT">勝った！！</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="control_break" id="47"></block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="7" x="622" y="30">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="8">
+        <statement name="DO">
+          <block type="control_loop" id="9">
+            <statement name="DO">
+              <block type="looks_say" id="10" inline="true">
+                <value name="TEXT">
+                  <block type="variables_get" id="11">
+                    <field name="VAR">ゲームタイマー</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_sleep" id="12" inline="true">
+                    <value name="SEC">
+                      <block type="math_number" id="13">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="14" inline="true">
+                        <field name="VAR">ねこタイマー</field>
+                        <value name="VALUE">
+                          <block type="operators_add" id="15" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="16">
+                                <field name="VAR">ねこタイマー</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="17">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="18" inline="true">
+                            <field name="VAR">ゲームタイマー</field>
+                            <value name="VALUE">
+                              <block type="operators_add" id="19" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="20">
+                                    <field name="VAR">ゲームタイマー</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="21">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="62" x="634" y="503">
+    <field name="NAME">ball2</field>
+    <statement name="DO">
+      <block type="events_on_start" id="63">
+        <statement name="DO">
+          <block type="control_loop" id="64">
+            <statement name="DO">
+              <block type="motion_move" id="65" inline="true">
+                <value name="STEP">
+                  <block type="math_number" id="66">
+                    <field name="NUM">30</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_turn_if_reach_wall" id="67"></block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="80" x="-12" y="595">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_click" id="48">
+        <statement name="DO">
+          <block type="variables_set" id="49" inline="true">
+            <field name="VAR">ねこタイマー</field>
+            <value name="VALUE">
+              <block type="math_number" id="50">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="51">
+                <statement name="DO">
+                  <block type="motion_go_to_mouse" id="52">
+                    <next>
+                      <block type="control_if" id="53" inline="true">
+                        <value name="COND">
+                          <block type="operators_negate" id="54" inline="true">
+                            <value name="A">
+                              <block type="sensing_input_mouse_push_or_down" id="55">
+                                <field name="MOUSE_BUTTON">M_LBUTTON</field>
+                                <field name="POD">down</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="control_break" id="56"></block>
+                        </statement>
+                        <next>
+                          <block type="control_if" id="57" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_gte" id="58" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="59">
+                                    <field name="VAR">ねこタイマー</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="60">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="control_break" id="61"></block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="68" x="-18" y="1016">
+    <field name="NAME">ball1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="69">
+        <statement name="DO">
+          <block type="control_loop" id="70">
+            <statement name="DO">
+              <block type="control_sleep" id="71" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="72">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_x_y" id="73" inline="true">
+                    <value name="X">
+                      <block type="operators_rand" id="74" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="75">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="76">
+                            <field name="NUM">500</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="Y">
+                      <block type="operators_rand" id="77" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="78">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="79">
+                            <field name="NUM">350</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
