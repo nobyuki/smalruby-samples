@@ -1,0 +1,199 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="277" y="279" name="バズーカの弾" costumes="ball5.png" angle="338"></character>
+  <character x="264" y="198" name="バズーカ" costumes="cat3.png" angle="0"></character>
+  <character x="544" y="64" name="被害者1" costumes="cat1.png" angle="0"></character>
+  <block type="character_new" id="1654" x="522" y="-580">
+    <field name="NAME">被害者1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1655">
+        <statement name="DO">
+          <block type="control_loop" id="1699">
+            <statement name="DO">
+              <block type="control_if_else" id="1685" inline="true">
+                <value name="COND">
+                  <block type="sensing_hit" id="1671">
+                    <field name="CHAR">バズーカの弾</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="1759" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1760">
+                        <field name="TEXT">キャー殺られた</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="character_new" id="1913">
+                        <field name="NAME">バズーカの弾</field>
+                        <statement name="DO">
+                          <block type="looks_hide" id="1915"></block>
+                        </statement>
+                        <next>
+                          <block type="motion_set_angle" id="2006" inline="true">
+                            <value name="ANGLE">
+                              <block type="math_number" id="2007">
+                                <field name="NUM">90</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="control_times" id="1774" inline="true">
+                                <value name="COUNT">
+                                  <block type="math_number" id="1775">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="motion_move" id="1960" inline="true">
+                                    <value name="STEP">
+                                      <block type="math_number" id="1961">
+                                        <field name="NUM">1000</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_rotate_right" id="2189" inline="true">
+                                        <value name="ANGLE">
+                                          <block type="math_number" id="2190">
+                                            <field name="NUM">180</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="control_await" id="2111"></block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="looks_say" id="2112" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="2113">
+                                        <field name="TEXT">ぐえー</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_sleep" id="2127" inline="true">
+                                        <value name="SEC">
+                                          <block type="math_number" id="2128">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="looks_hide" id="2144"></block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1264" x="28" y="-503">
+    <field name="NAME">バズーカ</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1265">
+        <next>
+          <block type="events_on_key_push_or_down" id="1270">
+            <field name="KEY">K_S</field>
+            <field name="POD">push</field>
+            <statement name="DO">
+              <block type="character_new" id="1332">
+                <field name="NAME">バズーカの弾</field>
+                <statement name="DO">
+                  <block type="motion_go_to_character" id="1331">
+                    <field name="CHAR">バズーカ</field>
+                    <next>
+                      <block type="motion_change_x_by" id="1560" inline="true">
+                        <value name="X">
+                          <block type="math_number" id="1593">
+                            <field name="NUM">96</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="looks_show" id="1393">
+                            <next>
+                              <block type="control_loop" id="1607">
+                                <statement name="DO">
+                                  <block type="motion_move" id="1652" inline="true">
+                                    <value name="STEP">
+                                      <block type="math_number" id="1653">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="control_if" id="1789" inline="true" x="141" y="-106">
+    <value name="COND">
+      <block type="sensing_hit" id="1790">
+        <field name="CHAR">被害者1</field>
+      </block>
+    </value>
+    <statement name="THEN">
+      <block type="control_break" id="1804"></block>
+    </statement>
+    <next>
+      <block type="looks_hide" id="1912"></block>
+    </next>
+  </block>
+  <block type="control_loop" id="1818" x="302" y="44">
+    <statement name="DO">
+      <block type="motion_go_to_character" id="1863">
+        <field name="CHAR">被害者1</field>
+        <next>
+          <block type="motion_change_x_by" id="1864" inline="true">
+            <value name="X">
+              <block type="math_number" id="1865">
+                <field name="NUM">48</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_change_y_by" id="1910" inline="true">
+                <value name="Y">
+                  <block type="math_number" id="1911">
+                    <field name="NUM">48</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1262" x="635" y="67">
+    <field name="NAME">バズーカの弾</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1263">
+        <statement name="DO">
+          <block type="looks_hide" id="1286"></block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
