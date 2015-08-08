@@ -1,25 +1,25 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <character x="200" y="200" name="cat1" costumes="costume1:cat1.png" angle="56"></character>
-  <block type="variables_set" id="5" inline="true" x="71" y="-148">
+  <block type="variables_set" id="3" inline="true" x="-24" y="-130">
     <field name="VAR">ひっぱり力</field>
     <value name="VALUE">
-      <block type="math_number" id="37">
+      <block type="math_number" id="4">
         <field name="NUM">0</field>
       </block>
     </value>
   </block>
-  <block type="character_new" id="1" x="129" y="-45">
+  <block type="character_new" id="5" x="-30" y="-66">
     <field name="NAME">cat1</field>
     <statement name="DO">
-      <block type="events_on_start" id="2">
+      <block type="events_on_start" id="6">
         <statement name="DO">
-          <block type="control_loop" id="834">
+          <block type="control_loop" id="7">
             <statement name="DO">
-              <block type="control_if" id="848" inline="true">
+              <block type="control_if" id="8" inline="true">
                 <value name="COND">
-                  <block type="operators_negate" id="849" inline="true">
+                  <block type="operators_negate" id="9" inline="true">
                     <value name="A">
-                      <block type="sensing_input_mouse_push_or_down" id="850">
+                      <block type="sensing_input_mouse_push_or_down" id="10">
                         <field name="MOUSE_BUTTON">M_LBUTTON</field>
                         <field name="POD">down</field>
                       </block>
@@ -27,42 +27,42 @@
                   </block>
                 </value>
                 <statement name="THEN">
-                  <block type="control_if_else" id="633" inline="true">
+                  <block type="control_if_else" id="11" inline="true">
                     <value name="COND">
-                      <block type="operators_compare_gte" id="818" inline="true">
+                      <block type="operators_compare_gte" id="12" inline="true">
                         <value name="A">
-                          <block type="variables_get" id="638">
+                          <block type="variables_get" id="13">
                             <field name="VAR">ひっぱり力</field>
                           </block>
                         </value>
                         <value name="B">
-                          <block type="math_number" id="705">
+                          <block type="math_number" id="14">
                             <field name="NUM">0</field>
                           </block>
                         </value>
                       </block>
                     </value>
                     <statement name="THEN">
-                      <block type="motion_move" id="471" inline="true">
+                      <block type="motion_move" id="15" inline="true">
                         <value name="STEP">
-                          <block type="variables_get" id="435">
+                          <block type="variables_get" id="16">
                             <field name="VAR">ひっぱり力</field>
                           </block>
                         </value>
                         <next>
-                          <block type="motion_turn_if_reach_wall" id="508">
+                          <block type="motion_turn_if_reach_wall" id="17">
                             <next>
-                              <block type="variables_set" id="514" inline="true">
+                              <block type="variables_set" id="18" inline="true">
                                 <field name="VAR">ひっぱり力</field>
                                 <value name="VALUE">
-                                  <block type="operators_minus" id="580" inline="true">
+                                  <block type="operators_minus" id="19" inline="true">
                                     <value name="A">
-                                      <block type="variables_get" id="548">
+                                      <block type="variables_get" id="20">
                                         <field name="VAR">ひっぱり力</field>
                                       </block>
                                     </value>
                                     <value name="B">
-                                      <block type="math_number" id="1583">
+                                      <block type="math_number" id="21">
                                         <field name="NUM">5</field>
                                       </block>
                                     </value>
@@ -75,10 +75,10 @@
                       </block>
                     </statement>
                     <statement name="ELSE">
-                      <block type="variables_set" id="706" inline="true">
+                      <block type="variables_set" id="22" inline="true">
                         <field name="VAR">ひっぱり力</field>
                         <value name="VALUE">
-                          <block type="math_number" id="1584">
+                          <block type="math_number" id="23">
                             <field name="NUM">0</field>
                           </block>
                         </value>
@@ -93,16 +93,16 @@
       </block>
     </statement>
   </block>
-  <block type="character_new" id="1012" x="130" y="441">
+  <block type="character_new" id="24" x="-30" y="413">
     <field name="NAME">cat1</field>
     <statement name="DO">
-      <block type="events_on_click" id="513">
+      <block type="events_on_click" id="25">
         <statement name="DO">
-          <block type="control_until" id="56" inline="true">
+          <block type="control_until" id="26" inline="true">
             <value name="COND">
-              <block type="operators_negate" id="101" inline="true">
+              <block type="operators_negate" id="27" inline="true">
                 <value name="A">
-                  <block type="sensing_input_mouse_push_or_down" id="69">
+                  <block type="sensing_input_mouse_push_or_down" id="28">
                     <field name="MOUSE_BUTTON">M_LBUTTON</field>
                     <field name="POD">down</field>
                   </block>
@@ -110,106 +110,86 @@
               </block>
             </value>
             <statement name="DO">
-              <block type="variables_set" id="890" inline="true">
-                <field name="VAR">横幅^2</field>
+              <block type="variables_set" id="29" inline="true">
+                <field name="VAR">横幅</field>
                 <value name="VALUE">
-                  <block type="operators_multiply" id="279" inline="true">
-                    <value name="A">
-                      <block type="operators_minus" id="238" inline="true">
+                  <block type="operators_math_method" id="30" inline="true">
+                    <field name="METHOD">%num%.abs</field>
+                    <value name="NUM">
+                      <block type="operators_minus" id="31" inline="true">
                         <value name="A">
-                          <block type="sensing_character_property" id="239">
+                          <block type="sensing_character_property" id="32">
                             <field name="CHAR">cat1</field>
                             <field name="PROPERTY">x</field>
                           </block>
                         </value>
                         <value name="B">
-                          <block type="sensing_input_mouse_pos_x" id="240"></block>
-                        </value>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <block type="operators_minus" id="237" inline="true">
-                        <value name="A">
-                          <block type="sensing_character_property" id="147">
-                            <field name="CHAR">cat1</field>
-                            <field name="PROPERTY">x</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="sensing_input_mouse_pos_x" id="191"></block>
+                          <block type="sensing_input_mouse_pos_x" id="33"></block>
                         </value>
                       </block>
                     </value>
                   </block>
                 </value>
                 <next>
-                  <block type="variables_set" id="892" inline="true">
-                    <field name="VAR">縦幅^2</field>
+                  <block type="variables_set" id="34" inline="true">
+                    <field name="VAR">縦幅</field>
                     <value name="VALUE">
-                      <block type="operators_multiply" id="278" inline="true">
-                        <value name="A">
-                          <block type="operators_minus" id="241" inline="true">
+                      <block type="operators_math_method" id="35" inline="true">
+                        <field name="METHOD">%num%.abs</field>
+                        <value name="NUM">
+                          <block type="operators_minus" id="36" inline="true">
                             <value name="A">
-                              <block type="sensing_character_property" id="205">
+                              <block type="sensing_character_property" id="37">
                                 <field name="CHAR">cat1</field>
                                 <field name="PROPERTY">y</field>
                               </block>
                             </value>
                             <value name="B">
-                              <block type="sensing_input_mouse_pos_y" id="204"></block>
-                            </value>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="operators_minus" id="244" inline="true">
-                            <value name="A">
-                              <block type="sensing_character_property" id="245">
-                                <field name="CHAR">cat1</field>
-                                <field name="PROPERTY">y</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="sensing_input_mouse_pos_y" id="246"></block>
+                              <block type="sensing_input_mouse_pos_y" id="38"></block>
                             </value>
                           </block>
                         </value>
                       </block>
                     </value>
                     <next>
-                      <block type="variables_set" id="370" inline="true">
+                      <block type="variables_set" id="39" inline="true">
                         <field name="VAR">ひっぱり力</field>
                         <value name="VALUE">
-                          <block type="operators_math_method" id="368" inline="true">
-                            <field name="METHOD">Math.sqrt(%num%)</field>
-                            <value name="NUM">
-                              <block type="operators_add" id="311" inline="true">
+                          <block type="operators_divide" id="40" inline="true">
+                            <value name="A">
+                              <block type="operators_add" id="41" inline="true">
                                 <value name="A">
-                                  <block type="variables_get" id="901">
-                                    <field name="VAR">縦幅^2</field>
+                                  <block type="variables_get" id="42">
+                                    <field name="VAR">横幅</field>
                                   </block>
                                 </value>
                                 <value name="B">
-                                  <block type="variables_get" id="945">
-                                    <field name="VAR">横幅^2</field>
+                                  <block type="variables_get" id="43">
+                                    <field name="VAR">縦幅</field>
                                   </block>
                                 </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="44">
+                                <field name="NUM">3</field>
                               </block>
                             </value>
                           </block>
                         </value>
                         <next>
-                          <block type="looks_hide" id="1526">
+                          <block type="looks_hide" id="45">
                             <next>
-                              <block type="motion_point_towards_mouse" id="1433">
+                              <block type="motion_point_towards_mouse" id="46">
                                 <next>
-                                  <block type="motion_rotate_right" id="1469" inline="true">
+                                  <block type="motion_rotate_right" id="47" inline="true">
                                     <value name="ANGLE">
-                                      <block type="math_number" id="1470">
+                                      <block type="math_number" id="48">
                                         <field name="NUM">180</field>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="looks_show" id="1582"></block>
+                                      <block type="looks_show" id="49"></block>
                                     </next>
                                   </block>
                                 </next>
