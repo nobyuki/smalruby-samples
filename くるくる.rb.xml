@@ -1,0 +1,180 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="294" y="346" name="car1" costumes="costume1:car2.png" angle="0"></character>
+  <character x="274" y="186" name="frog1" costumes="costume1:frog1.png" angle="0"></character>
+  <character x="24" y="208" name="car2" costumes="costume1:car3.png" angle="0"></character>
+  <character x="442" y="214" name="car3" costumes="costume1:car4.png" angle="0"></character>
+  <block type="character_new" id="789" x="-26" y="-29">
+    <field name="NAME">car1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="790">
+        <statement name="DO">
+          <block type="motion_set_x" id="1078" inline="true">
+            <value name="X">
+              <block type="sensing_character_property" id="1037">
+                <field name="CHAR">frog1</field>
+                <field name="PROPERTY">x</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="810">
+                <statement name="DO">
+                  <block type="motion_point_towards_character" id="851">
+                    <field name="CHAR">frog1</field>
+                    <next>
+                      <block type="motion_rotate_right" id="934" inline="true">
+                        <value name="ANGLE">
+                          <block type="math_number" id="935">
+                            <field name="NUM">87</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="motion_move" id="892" inline="true">
+                            <value name="STEP">
+                              <block type="math_number" id="893">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="791" x="391" y="-17">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="792">
+        <statement name="DO">
+          <block type="control_loop" id="1146">
+            <statement name="DO">
+              <block type="motion_rotate_left" id="1229" inline="true">
+                <value name="ANGLE">
+                  <block type="math_number" id="1230">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_start" id="1259">
+            <statement name="DO">
+              <block type="control_sleep" id="1273" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="1274">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="looks_say" id="1296" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1297">
+                        <field name="TEXT">目が回る〜</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1080" x="-9" y="337">
+    <field name="NAME">car2</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1082">
+        <statement name="DO">
+          <block type="motion_set_y" id="1131" inline="true">
+            <value name="Y">
+              <block type="sensing_character_property" id="1084">
+                <field name="CHAR">frog1</field>
+                <field name="PROPERTY">y</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="1085">
+                <statement name="DO">
+                  <block type="motion_point_towards_character" id="1086">
+                    <field name="CHAR">frog1</field>
+                    <next>
+                      <block type="motion_rotate_right" id="1087" inline="true">
+                        <value name="ANGLE">
+                          <block type="math_number" id="1088">
+                            <field name="NUM">90</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="motion_move" id="1089" inline="true">
+                            <value name="STEP">
+                              <block type="math_number" id="1090">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1231" x="416" y="345">
+    <field name="NAME">car3</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1233">
+        <statement name="DO">
+          <block type="motion_set_y" id="1234" inline="true">
+            <value name="Y">
+              <block type="sensing_character_property" id="1235">
+                <field name="CHAR">frog1</field>
+                <field name="PROPERTY">y</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="1236">
+                <statement name="DO">
+                  <block type="motion_point_towards_character" id="1237">
+                    <field name="CHAR">frog1</field>
+                    <next>
+                      <block type="motion_rotate_right" id="1238" inline="true">
+                        <value name="ANGLE">
+                          <block type="math_number" id="1239">
+                            <field name="NUM">85</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="motion_move" id="1240" inline="true">
+                            <value name="STEP">
+                              <block type="math_number" id="1241">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
