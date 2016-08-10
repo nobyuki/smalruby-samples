@@ -1,0 +1,386 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="200" y="135" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="200" y="135" name="cat2" costumes="costume1:cat3.png" angle="0"></character>
+  <character x="200" y="135" name="cat3" costumes="costume1:cat2.png" angle="0"></character>
+  <character x="280" y="190" name="frog1" costumes="costume1:frog1.png" angle="0"></character>
+  <block type="character_new" id="1" x="-76" y="11">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="209">
+        <statement name="DO">
+          <block type="looks_hide" id="170"></block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="148">
+            <field name="KEY">K_3</field>
+            <field name="POD">push</field>
+            <statement name="DO">
+              <block type="looks_show" id="312">
+                <next>
+                  <block type="pen_down_pen" id="381">
+                    <next>
+                      <block type="control_times" id="87" inline="true">
+                        <value name="COUNT">
+                          <block type="math_number" id="88">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="control_sleep" id="384" inline="true">
+                            <value name="SEC">
+                              <block type="math_number" id="385">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_move" id="43" inline="true">
+                                <value name="STEP">
+                                  <block type="math_number" id="44">
+                                    <field name="NUM">100</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="control_sleep" id="382" inline="true">
+                                    <value name="SEC">
+                                      <block type="math_number" id="383">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_rotate_right" id="376" inline="true">
+                                        <value name="ANGLE">
+                                          <block type="math_number" id="290">
+                                            <field name="NUM">120</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="looks_hide" id="838"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="386" x="292" y="-6">
+    <field name="NAME">cat2</field>
+    <statement name="DO">
+      <block type="events_on_start" id="387">
+        <statement name="DO">
+          <block type="looks_hide" id="388"></block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="389">
+            <field name="KEY">K_4</field>
+            <field name="POD">push</field>
+            <statement name="DO">
+              <block type="looks_show" id="390">
+                <next>
+                  <block type="pen_down_pen" id="391">
+                    <next>
+                      <block type="control_times" id="392" inline="true">
+                        <value name="COUNT">
+                          <block type="math_number" id="393">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="control_sleep" id="394" inline="true">
+                            <value name="SEC">
+                              <block type="math_number" id="395">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_rotate_right" id="400" inline="true">
+                                <value name="ANGLE">
+                                  <block type="math_number" id="401">
+                                    <field name="NUM">90</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="control_sleep" id="398" inline="true">
+                                    <value name="SEC">
+                                      <block type="math_number" id="399">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_move" id="396" inline="true">
+                                        <value name="STEP">
+                                          <block type="math_number" id="397">
+                                            <field name="NUM">100</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="looks_hide" id="839"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="418" x="645" y="-6">
+    <field name="NAME">cat3</field>
+    <statement name="DO">
+      <block type="events_on_start" id="421">
+        <statement name="DO">
+          <block type="looks_hide" id="422"></block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="423">
+            <field name="KEY">K_N</field>
+            <field name="POD">push</field>
+            <statement name="DO">
+              <block type="variables_set" id="438" inline="true">
+                <field name="VAR">n</field>
+                <value name="VALUE">
+                  <block type="math_number" id="439">
+                    <field name="NUM">7</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="looks_show" id="424">
+                    <next>
+                      <block type="pen_down_pen" id="425">
+                        <next>
+                          <block type="control_times" id="426" inline="true">
+                            <value name="COUNT">
+                              <block type="variables_get" id="444">
+                                <field name="VAR">n</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="control_sleep" id="428" inline="true">
+                                <value name="SEC">
+                                  <block type="math_number" id="429">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_rotate_right" id="434" inline="true">
+                                    <value name="ANGLE">
+                                      <block type="operators_minus" id="476" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="540">
+                                            <field name="NUM">180</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="operators_divide" id="604" inline="true">
+                                            <value name="A">
+                                              <block type="operators_multiply" id="508" inline="true">
+                                                <value name="A">
+                                                  <block type="math_number" id="636">
+                                                    <field name="NUM">180</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="operators_minus" id="572" inline="true">
+                                                    <value name="A">
+                                                      <block type="variables_get" id="641">
+                                                        <field name="VAR">n</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="642">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="643">
+                                                <field name="VAR">n</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_sleep" id="432" inline="true">
+                                        <value name="SEC">
+                                          <block type="math_number" id="433">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="motion_move" id="430" inline="true">
+                                            <value name="STEP">
+                                              <block type="math_number" id="431">
+                                                <field name="NUM">100</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="looks_hide" id="840"></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="662" x="-70" y="474">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="665">
+        <statement name="DO">
+          <block type="looks_hide" id="666"></block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="667">
+            <field name="KEY">K_A</field>
+            <field name="POD">push</field>
+            <statement name="DO">
+              <block type="variables_set" id="689" inline="true">
+                <field name="VAR">i</field>
+                <value name="VALUE">
+                  <block type="math_number" id="690">
+                    <field name="NUM">7</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="looks_show" id="668">
+                    <next>
+                      <block type="pen_down_pen" id="669">
+                        <next>
+                          <block type="control_times" id="704" inline="true">
+                            <value name="COUNT">
+                              <block type="variables_get" id="712">
+                                <field name="VAR">i</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="control_times" id="670" inline="true">
+                                <value name="COUNT">
+                                  <block type="math_number" id="671">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="control_sleep" id="672" inline="true">
+                                    <value name="SEC">
+                                      <block type="math_number" id="673">
+                                        <field name="NUM">0.1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_move" id="674" inline="true">
+                                        <value name="STEP">
+                                          <block type="math_number" id="675">
+                                            <field name="NUM">100</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="control_sleep" id="676" inline="true">
+                                            <value name="SEC">
+                                              <block type="math_number" id="677">
+                                                <field name="NUM">0.1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="motion_rotate_right" id="678" inline="true">
+                                                <value name="ANGLE">
+                                                  <block type="math_number" id="679">
+                                                    <field name="NUM">90</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="control_sleep" id="757" inline="true">
+                                    <value name="SEC">
+                                      <block type="math_number" id="758">
+                                        <field name="NUM">0.1</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_rotate_right" id="759" inline="true">
+                                        <value name="ANGLE">
+                                          <block type="operators_divide" id="831" inline="true">
+                                            <value name="A">
+                                              <block type="math_number" id="760">
+                                                <field name="NUM">360</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="836">
+                                                <field name="VAR">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="looks_hide" id="837"></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
