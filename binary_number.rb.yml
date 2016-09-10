@@ -1,0 +1,624 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="544" y="384" name="cat1" costumes="costume1:cat1.png" angle="198" rotation_style="left_right"></character>
+  <character x="50" y="192" name="frog0" costumes="costume1:frog1.png,costume2:cat2.png" angle="0"></character>
+  <character x="188" y="38" name="frog1" costumes="costume1:frog1.png,costume2:cat2.png" angle="0"></character>
+  <character x="208" y="334" name="frog2" costumes="costume1:frog1.png,costume2:cat2.png" angle="0"></character>
+  <character x="472" y="42" name="frog3" costumes="costume1:frog1.png,costume2:cat2.png" angle="0"></character>
+  <character x="524" y="270" name="frog4" costumes="costume1:frog1.png,costume2:cat2.png" angle="0"></character>
+  <block type="ruby_comment" id="3" x="44" y="-216">
+    <field name="COMMENT">2進数</field>
+  </block>
+  <block type="variables_set" id="4" inline="true" x="29" y="-141">
+    <field name="VAR">カウント</field>
+    <value name="VALUE">
+      <block type="math_number" id="5">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="character_new" id="6" x="18" y="-34">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="7">
+        <statement name="DO">
+          <block type="control_sleep" id="8" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="9">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="10">
+                <statement name="DO">
+                  <block type="looks_say" id="11" inline="true">
+                    <value name="TEXT">
+                      <block type="variables_get" id="12">
+                        <field name="VAR">カウント</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_click" id="13">
+            <statement name="DO">
+              <block type="variables_set" id="14" inline="true">
+                <field name="VAR">カウント</field>
+                <value name="VALUE">
+                  <block type="operators_add" id="15" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="16">
+                        <field name="VAR">カウント</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="17">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_if" id="18" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_gte" id="19" inline="true">
+                        <value name="A">
+                          <block type="variables_get" id="20">
+                            <field name="VAR">カウント</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="21">
+                            <field name="NUM">32</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="variables_set" id="22" inline="true">
+                        <field name="VAR">カウント</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="23">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="24" x="604" y="1">
+    <field name="NAME">frog0</field>
+    <statement name="DO">
+      <block type="events_on_start" id="25">
+        <statement name="DO">
+          <block type="control_sleep" id="26" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="27">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_loop" id="28">
+                <statement name="DO">
+                  <block type="control_if_else" id="29" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_eq" id="30" inline="true">
+                        <value name="A">
+                          <block type="operators_divide" id="31" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="32">
+                                <field name="VAR">カウント</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="33">
+                                <field name="NUM">16</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="34">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_switch_costume" id="35">
+                        <field name="COSTUME">costume2</field>
+                        <next>
+                          <block type="looks_say" id="36" inline="true">
+                            <value name="TEXT">
+                              <block type="math_number" id="37">
+                                <field name="NUM">16</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="looks_switch_costume" id="38">
+                        <field name="COSTUME">costume1</field>
+                        <next>
+                          <block type="looks_say" id="39" inline="true">
+                            <value name="TEXT">
+                              <block type="text" id="40">
+                                <field name="TEXT"></field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="41" x="25" y="439">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="42">
+        <statement name="DO">
+          <block type="control_sleep" id="43" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="44">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_set_x" id="45" inline="true">
+                <value name="X">
+                  <block type="operators_add" id="46" inline="true">
+                    <value name="A">
+                      <block type="sensing_character_property" id="47">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="48">
+                        <field name="NUM">110</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_y" id="49" inline="true">
+                    <value name="Y">
+                      <block type="sensing_character_property" id="50">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">y</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_loop" id="51">
+                        <statement name="DO">
+                          <block type="control_if_else" id="52" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="53" inline="true">
+                                <value name="A">
+                                  <block type="operators_modulo" id="54" inline="true">
+                                    <value name="A">
+                                      <block type="operators_divide" id="55" inline="true">
+                                        <value name="A">
+                                          <block type="variables_get" id="56">
+                                            <field name="VAR">カウント</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="57">
+                                            <field name="NUM">8</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="58">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="59">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_switch_costume" id="60">
+                                <field name="COSTUME">costume2</field>
+                                <next>
+                                  <block type="looks_say" id="61" inline="true">
+                                    <value name="TEXT">
+                                      <block type="math_number" id="62">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="looks_switch_costume" id="63">
+                                <field name="COSTUME">costume1</field>
+                                <next>
+                                  <block type="looks_say" id="64" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="65">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="66" x="732" y="444">
+    <field name="NAME">frog2</field>
+    <statement name="DO">
+      <block type="events_on_start" id="67">
+        <statement name="DO">
+          <block type="control_sleep" id="68" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="69">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_set_x" id="70" inline="true">
+                <value name="X">
+                  <block type="operators_add" id="71" inline="true">
+                    <value name="A">
+                      <block type="sensing_character_property" id="72">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="73">
+                        <field name="NUM">220</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_y" id="74" inline="true">
+                    <value name="Y">
+                      <block type="sensing_character_property" id="75">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">y</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_loop" id="76">
+                        <statement name="DO">
+                          <block type="control_if_else" id="77" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="78" inline="true">
+                                <value name="A">
+                                  <block type="operators_modulo" id="79" inline="true">
+                                    <value name="A">
+                                      <block type="operators_divide" id="80" inline="true">
+                                        <value name="A">
+                                          <block type="variables_get" id="81">
+                                            <field name="VAR">カウント</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="82">
+                                            <field name="NUM">4</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="83">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="84">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_switch_costume" id="85">
+                                <field name="COSTUME">costume2</field>
+                                <next>
+                                  <block type="looks_say" id="86" inline="true">
+                                    <value name="TEXT">
+                                      <block type="math_number" id="87">
+                                        <field name="NUM">4</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="looks_switch_costume" id="88">
+                                <field name="COSTUME">costume1</field>
+                                <next>
+                                  <block type="looks_say" id="89" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="90">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="looks_say" id="91" inline="true" x="125" y="888">
+    <value name="TEXT">
+      <block type="text" id="92">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  <block type="character_new" id="93" x="62" y="954">
+    <field name="NAME">frog3</field>
+    <statement name="DO">
+      <block type="events_on_start" id="94">
+        <statement name="DO">
+          <block type="control_sleep" id="95" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="96">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_set_x" id="97" inline="true">
+                <value name="X">
+                  <block type="operators_add" id="98" inline="true">
+                    <value name="A">
+                      <block type="sensing_character_property" id="99">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="100">
+                        <field name="NUM">330</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_y" id="101" inline="true">
+                    <value name="Y">
+                      <block type="sensing_character_property" id="102">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">y</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_loop" id="103">
+                        <statement name="DO">
+                          <block type="control_if_else" id="104" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="105" inline="true">
+                                <value name="A">
+                                  <block type="operators_modulo" id="106" inline="true">
+                                    <value name="A">
+                                      <block type="operators_divide" id="107" inline="true">
+                                        <value name="A">
+                                          <block type="variables_get" id="108">
+                                            <field name="VAR">カウント</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="109">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="110">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="111">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_switch_costume" id="112">
+                                <field name="COSTUME">costume2</field>
+                                <next>
+                                  <block type="looks_say" id="113" inline="true">
+                                    <value name="TEXT">
+                                      <block type="math_number" id="114">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="looks_switch_costume" id="115">
+                                <field name="COSTUME">costume1</field>
+                                <next>
+                                  <block type="looks_say" id="116" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="117">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="118" x="746" y="990">
+    <field name="NAME">frog4</field>
+    <statement name="DO">
+      <block type="events_on_start" id="119">
+        <statement name="DO">
+          <block type="control_sleep" id="120" inline="true">
+            <value name="SEC">
+              <block type="math_number" id="121">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="motion_set_x" id="122" inline="true">
+                <value name="X">
+                  <block type="operators_add" id="123" inline="true">
+                    <value name="A">
+                      <block type="sensing_character_property" id="124">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">x</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="125">
+                        <field name="NUM">440</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_y" id="126" inline="true">
+                    <value name="Y">
+                      <block type="sensing_character_property" id="127">
+                        <field name="CHAR">frog0</field>
+                        <field name="PROPERTY">y</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_loop" id="128">
+                        <statement name="DO">
+                          <block type="control_if_else" id="129" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="130" inline="true">
+                                <value name="A">
+                                  <block type="operators_modulo" id="131" inline="true">
+                                    <value name="A">
+                                      <block type="variables_get" id="132">
+                                        <field name="VAR">カウント</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="133">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="134">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_switch_costume" id="135">
+                                <field name="COSTUME">costume2</field>
+                                <next>
+                                  <block type="looks_say" id="136" inline="true">
+                                    <value name="TEXT">
+                                      <block type="math_number" id="137">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="looks_switch_costume" id="138">
+                                <field name="COSTUME">costume1</field>
+                                <next>
+                                  <block type="looks_say" id="139" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="140">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
