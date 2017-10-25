@@ -1,8 +1,8 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <character x="0" y="126" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
-  <character x="0" y="0" name="shot" costumes="costume1:ball1.png,costume2:ball2.png,costume3:ball3.png,costume4:ball4.png,costume5:ball6.png" costume_index="4" angle="0"></character>
-  <character x="562" y="140" name="item" costumes="costume1:ball1.png,costume2:ball2.png,costume3:ball3.png,costume4:ball4.png,costume5:ball6.png" angle="0"></character>
-  <block type="variables_set" id="53" inline="true" x="34" y="-5">
+  <character x="0" y="0" name="shot" costumes="costume1:ball1.png,costume2:ball2.png,costume3:ball3.png" angle="0"></character>
+  <character x="562" y="140" name="item" costumes="サッカー:ball1.png,bassball:ball2.png,bascket:ball3.png" angle="0"></character>
+  <block type="variables_set" id="53" inline="true" x="-294" y="21">
     <field name="VAR">速度</field>
     <value name="VALUE">
       <block type="math_number" id="54">
@@ -10,7 +10,7 @@
       </block>
     </value>
   </block>
-  <block type="character_new" id="77" x="-170" y="59">
+  <block type="character_new" id="77" x="-308" y="78">
     <field name="NAME">cat1</field>
     <statement name="DO">
       <block type="events_on_key_push_or_down" id="78">
@@ -38,12 +38,119 @@
                 </value>
               </block>
             </statement>
+            <next>
+              <block type="events_on_hit" id="618">
+                <field name="CHAR">item</field>
+                <statement name="DO">
+                  <block type="control_if" id="649" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_eq" id="696" inline="true">
+                        <value name="A">
+                          <block type="sensing_character_property" id="659">
+                            <field name="CHAR">item</field>
+                            <field name="PROPERTY">costume_index</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="755">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_say" id="736" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="737">
+                            <field name="TEXT">サッカー</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_if" id="756" inline="true">
+                        <value name="COND">
+                          <block type="operators_compare_eq" id="757" inline="true">
+                            <value name="A">
+                              <block type="sensing_character_property" id="758">
+                                <field name="CHAR">item</field>
+                                <field name="PROPERTY">costume_index</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="759">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="looks_say" id="760" inline="true">
+                            <value name="TEXT">
+                              <block type="text" id="761">
+                                <field name="TEXT">やきゅう</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="control_if" id="762" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="763" inline="true">
+                                <value name="A">
+                                  <block type="sensing_character_property" id="764">
+                                    <field name="CHAR">item</field>
+                                    <field name="PROPERTY">costume_index</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="765">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_say" id="766" inline="true">
+                                <value name="TEXT">
+                                  <block type="text" id="767">
+                                    <field name="TEXT">バスケ</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="control_sleep" id="751" inline="true">
+                                <value name="SEC">
+                                  <block type="math_number" id="752">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="looks_say" id="753" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="754">
+                                        <field name="TEXT"></field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
           </block>
         </next>
       </block>
     </statement>
   </block>
-  <block type="character_new" id="84" x="394" y="58">
+  <block type="character_new" id="84" x="711" y="32">
     <field name="NAME">item</field>
     <statement name="DO">
       <block type="events_on_start" id="85">
@@ -201,7 +308,7 @@
       </block>
     </statement>
   </block>
-  <block type="character_new" id="55" x="-178" y="301">
+  <block type="character_new" id="55" x="275" y="55">
     <field name="NAME">shot</field>
     <statement name="DO">
       <block type="events_on_start" id="56">
