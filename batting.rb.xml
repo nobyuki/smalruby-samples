@@ -1,0 +1,409 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="45" y="387" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="467" y="387" name="frog1" costumes="costume1:frog1.png" angle="174" rotation_style="left_right"></character>
+  <character x="563" y="407" name="ball1" costumes="costume1:ball2.png" angle="0"></character>
+  <block type="variables_set" id="1168" inline="true" x="-90" y="71">
+    <field name="VAR">投げた</field>
+    <value name="VALUE">
+      <block type="operators_false" id="1169"></block>
+    </value>
+    <next>
+      <block type="variables_set" id="1170" inline="true">
+        <field name="VAR">打った</field>
+        <value name="VALUE">
+          <block type="operators_false" id="1171"></block>
+        </value>
+        <next>
+          <block type="variables_set" id="1174" inline="true">
+            <field name="VAR">ボールの速さ</field>
+            <value name="VALUE">
+              <block type="math_number" id="1175">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="character_new" id="1207" x="-88" y="201">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1208">
+        <statement name="DO">
+          <block type="control_loop" id="1278">
+            <statement name="DO">
+              <block type="control_if" id="1292" inline="true">
+                <value name="COND">
+                  <block type="operators_negate" id="1293" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="1294">
+                        <field name="VAR">打った</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="control_if" id="1308" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_gt" id="1997" inline="true">
+                        <value name="A">
+                          <block type="hardware_sensor_value" id="1953">
+                            <field name="PIN">A0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="1998">
+                            <field name="NUM">200</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="variables_set" id="1320" inline="true">
+                        <field name="VAR">打った</field>
+                        <value name="VALUE">
+                          <block type="operators_true" id="1321"></block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="1576" inline="true">
+                            <field name="VAR">猫の中心</field>
+                            <value name="VALUE">
+                              <block type="operators_add" id="1578" inline="true">
+                                <value name="A">
+                                  <block type="motion_self_x" id="1579"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="operators_divide" id="1848" inline="true">
+                                    <value name="A">
+                                      <block type="math_number" id="1849">
+                                        <field name="NUM">96</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="1850">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="1588" inline="true">
+                                <field name="VAR">ボールの中心</field>
+                                <value name="VALUE">
+                                  <block type="operators_add" id="1583" inline="true">
+                                    <value name="A">
+                                      <block type="sensing_character_property" id="1584">
+                                        <field name="CHAR">ball1</field>
+                                        <field name="PROPERTY">x</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="operators_divide" id="1585" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="1586">
+                                            <field name="NUM">32</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="1587">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="1574" inline="true">
+                                    <field name="VAR">打った位置のズレ幅</field>
+                                    <value name="VALUE">
+                                      <block type="operators_math_method" id="1627" inline="true">
+                                        <field name="METHOD">%num%.abs</field>
+                                        <value name="NUM">
+                                          <block type="operators_minus" id="1573" inline="true">
+                                            <value name="A">
+                                              <block type="variables_get" id="1594">
+                                                <field name="VAR">猫の中心</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="1595">
+                                                <field name="VAR">ボールの中心</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_if_else" id="1895" inline="true">
+                                        <value name="COND">
+                                          <block type="operators_compare_lt" id="1813" inline="true">
+                                            <value name="A">
+                                              <block type="variables_get" id="1674">
+                                                <field name="VAR">打った位置のズレ幅</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="1913">
+                                                <field name="NUM">15</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <statement name="THEN">
+                                          <block type="looks_say" id="1728" inline="true">
+                                            <value name="TEXT">
+                                              <block type="text" id="1729">
+                                                <field name="TEXT">ホームラン！</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="character_new" id="1769">
+                                                <field name="NAME">ball1</field>
+                                                <statement name="DO">
+                                                  <block type="motion_set_angle" id="1767" inline="true">
+                                                    <value name="ANGLE">
+                                                      <block type="math_number" id="1768">
+                                                        <field name="NUM">315</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="variables_set" id="1730" inline="true">
+                                                    <field name="VAR">ボールの速さ</field>
+                                                    <value name="VALUE">
+                                                      <block type="math_number" id="1731">
+                                                        <field name="NUM">40</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <statement name="ELSE">
+                                          <block type="control_if_else" id="1909" inline="true">
+                                            <value name="COND">
+                                              <block type="operators_compare_lt" id="1845" inline="true">
+                                                <value name="A">
+                                                  <block type="variables_get" id="1846">
+                                                    <field name="VAR">打った位置のズレ幅</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="1581">
+                                                    <field name="NUM">40</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="THEN">
+                                              <block type="looks_say" id="1775" inline="true">
+                                                <value name="TEXT">
+                                                  <block type="text" id="1776">
+                                                    <field name="TEXT">ヒット</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="character_new" id="1777">
+                                                    <field name="NAME">ball1</field>
+                                                    <statement name="DO">
+                                                      <block type="motion_set_angle" id="1778" inline="true">
+                                                        <value name="ANGLE">
+                                                          <block type="math_number" id="1779">
+                                                            <field name="NUM">340</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="variables_set" id="1780" inline="true">
+                                                        <field name="VAR">ボールの速さ</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id="1781">
+                                                            <field name="NUM">20</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <statement name="ELSE">
+                                              <block type="looks_say" id="1910" inline="true">
+                                                <value name="TEXT">
+                                                  <block type="text" id="1911">
+                                                    <field name="TEXT">空振り・・・</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1196" x="800" y="210">
+    <field name="NAME">ball1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1197">
+        <statement name="DO">
+          <block type="looks_hide" id="1198">
+            <next>
+              <block type="control_loop" id="1199">
+                <statement name="DO">
+                  <block type="control_if" id="1200" inline="true">
+                    <value name="COND">
+                      <block type="variables_get" id="1201">
+                        <field name="VAR">投げた</field>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="motion_move" id="1202" inline="true">
+                        <value name="STEP">
+                          <block type="variables_get" id="1203">
+                            <field name="VAR">ボールの速さ</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_if" id="1204" inline="true">
+                        <value name="COND">
+                          <block type="sensing_reach_wall" id="1205"></block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="looks_hide" id="1206"></block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1176" x="795" y="583">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1177">
+        <statement name="DO">
+          <block type="control_loop" id="1178">
+            <statement name="DO">
+              <block type="control_if" id="1179" inline="true">
+                <value name="COND">
+                  <block type="operators_negate" id="1180" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="1181">
+                        <field name="VAR">投げた</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="control_if" id="1182" inline="true">
+                    <value name="COND">
+                      <block type="sensing_input_key_push_or_down" id="1183">
+                        <field name="KEY">K_SPACE</field>
+                        <field name="POD">down</field>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="character_new" id="1184">
+                        <field name="NAME">ball1</field>
+                        <statement name="DO">
+                          <block type="motion_set_x" id="1185" inline="true">
+                            <value name="X">
+                              <block type="sensing_character_property" id="1186">
+                                <field name="CHAR">frog1</field>
+                                <field name="PROPERTY">x</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_set_y" id="1187" inline="true">
+                                <value name="Y">
+                                  <block type="operators_add" id="1188" inline="true">
+                                    <value name="A">
+                                      <block type="sensing_character_property" id="1189">
+                                        <field name="CHAR">frog1</field>
+                                        <field name="PROPERTY">y</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="1190">
+                                        <field name="NUM">32</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_set_angle" id="1191" inline="true">
+                                    <value name="ANGLE">
+                                      <block type="math_number" id="1192">
+                                        <field name="NUM">180</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="looks_show" id="1193"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="variables_set" id="1194" inline="true">
+                            <field name="VAR">投げた</field>
+                            <value name="VALUE">
+                              <block type="operators_true" id="1195"></block>
+                            </value>
+                            <next>
+                              <block type="looks_say" id="1233" inline="true">
+                                <value name="TEXT">
+                                  <block type="text" id="1234">
+                                    <field name="TEXT">ケロ〜</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
