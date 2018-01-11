@@ -1,0 +1,581 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="150" y="200" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="400" y="200" name="frog1" costumes="costume1:frog1.png" angle="180" rotation_style="left_right"></character>
+  <block type="variables_set" id="345" inline="true" x="69" y="23">
+    <field name="VAR">鳴った</field>
+    <value name="VALUE">
+      <block type="operators_false" id="346"></block>
+    </value>
+    <next>
+      <block type="variables_set" id="95" inline="true">
+        <field name="VAR">音の種類</field>
+        <value name="VALUE">
+          <block type="math_number" id="127">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="7" inline="true">
+            <field name="VAR">答えた</field>
+            <value name="VALUE">
+              <block type="operators_false" id="39"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="290" inline="true">
+                <field name="VAR">回答</field>
+                <value name="VALUE">
+                  <block type="math_number" id="292">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="character_new" id="1" x="72" y="231">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="547">
+        <statement name="DO">
+          <block type="control_loop" id="492">
+            <statement name="DO">
+              <block type="control_if" id="506" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="507">
+                    <field name="VAR">答えた</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="control_if" id="583" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_eq" id="584" inline="true">
+                        <value name="A">
+                          <block type="variables_get" id="540">
+                            <field name="VAR">回答</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="586">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_say" id="528" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="608">
+                            <field name="TEXT">ド！</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_if" id="609" inline="true">
+                        <value name="COND">
+                          <block type="operators_compare_eq" id="610" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="611">
+                                <field name="VAR">回答</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="612">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="looks_say" id="613" inline="true">
+                            <value name="TEXT">
+                              <block type="text" id="614">
+                                <field name="TEXT">レ！</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="control_if" id="615" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="616" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="617">
+                                    <field name="VAR">回答</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="618">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="looks_say" id="619" inline="true">
+                                <value name="TEXT">
+                                  <block type="text" id="620">
+                                    <field name="TEXT">ミ！</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="297">
+            <field name="KEY">K_1</field>
+            <field name="POD">down</field>
+            <statement name="DO">
+              <block type="control_if" id="311" inline="true">
+                <value name="COND">
+                  <block type="operators_and" id="412" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="454">
+                        <field name="VAR">鳴った</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="operators_negate" id="343" inline="true">
+                        <value name="A">
+                          <block type="variables_get" id="344">
+                            <field name="VAR">答えた</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="455" inline="true">
+                    <field name="VAR">回答</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="456">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="541" inline="true">
+                        <field name="VAR">答えた</field>
+                        <value name="VALUE">
+                          <block type="operators_true" id="542"></block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="events_on_key_push_or_down" id="548">
+                <field name="KEY">K_2</field>
+                <field name="POD">down</field>
+                <statement name="DO">
+                  <block type="control_if" id="549" inline="true">
+                    <value name="COND">
+                      <block type="operators_and" id="550" inline="true">
+                        <value name="A">
+                          <block type="variables_get" id="551">
+                            <field name="VAR">鳴った</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="operators_negate" id="552" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="553">
+                                <field name="VAR">答えた</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="variables_set" id="554" inline="true">
+                        <field name="VAR">回答</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="555">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="556" inline="true">
+                            <field name="VAR">答えた</field>
+                            <value name="VALUE">
+                              <block type="operators_true" id="557"></block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="events_on_key_push_or_down" id="558">
+                    <field name="KEY">K_3</field>
+                    <field name="POD">down</field>
+                    <statement name="DO">
+                      <block type="control_if" id="559" inline="true">
+                        <value name="COND">
+                          <block type="operators_and" id="560" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="561">
+                                <field name="VAR">鳴った</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="operators_negate" id="562" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="563">
+                                    <field name="VAR">答えた</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="variables_set" id="564" inline="true">
+                            <field name="VAR">回答</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="565">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="566" inline="true">
+                                <field name="VAR">答えた</field>
+                                <value name="VALUE">
+                                  <block type="operators_true" id="567"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="3" x="798" y="194">
+    <field name="NAME">frog1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="4">
+        <statement name="DO">
+          <block type="looks_say" id="74" inline="true">
+            <value name="TEXT">
+              <block type="text" id="75">
+                <field name="TEXT">これはなんの音？</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_sleep" id="89" inline="true">
+                <value name="SEC">
+                  <block type="math_number" id="90">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="128" inline="true">
+                    <field name="VAR">音の種類</field>
+                    <value name="VALUE">
+                      <block type="operators_rand" id="161" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="162">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="163">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_if" id="177" inline="true">
+                        <value name="COND">
+                          <block type="operators_compare_eq" id="209" inline="true">
+                            <value name="A">
+                              <block type="variables_get" id="216">
+                                <field name="VAR">音の種類</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="248">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="THEN">
+                          <block type="sound_play" id="251" inline="true">
+                            <value name="NAME">
+                              <block type="sound_preset_sounds" id="252">
+                                <field name="NAME">piano_do.wav</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="control_if" id="253" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="254" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="255">
+                                    <field name="VAR">音の種類</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="256">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="sound_play" id="257" inline="true">
+                                <value name="NAME">
+                                  <block type="sound_preset_sounds" id="258">
+                                    <field name="NAME">piano_re.wav</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="control_if" id="259" inline="true">
+                                <value name="COND">
+                                  <block type="operators_compare_eq" id="260" inline="true">
+                                    <value name="A">
+                                      <block type="variables_get" id="261">
+                                        <field name="VAR">音の種類</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="262">
+                                        <field name="NUM">3</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="THEN">
+                                  <block type="sound_play" id="263" inline="true">
+                                    <value name="NAME">
+                                      <block type="sound_preset_sounds" id="264">
+                                        <field name="NAME">piano_mi.wav</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="variables_set" id="347" inline="true">
+                                    <field name="VAR">鳴った</field>
+                                    <value name="VALUE">
+                                      <block type="operators_true" id="380"></block>
+                                    </value>
+                                    <next>
+                                      <block type="control_sleep" id="267" inline="true">
+                                        <value name="SEC">
+                                          <block type="math_number" id="268">
+                                            <field name="NUM">2</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="control_await_until" id="282" inline="true">
+                                            <value name="COND">
+                                              <block type="variables_get" id="289">
+                                                <field name="VAR">答えた</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="control_sleep" id="743" inline="true">
+                                                <value name="SEC">
+                                                  <block type="math_number" id="744">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="looks_say" id="621" inline="true">
+                                                    <value name="TEXT">
+                                                      <block type="text" id="622">
+                                                        <field name="TEXT">答えは…</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="control_sleep" id="623" inline="true">
+                                                        <value name="SEC">
+                                                          <block type="math_number" id="624">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="control_if" id="627" inline="true">
+                                                            <value name="COND">
+                                                              <block type="operators_compare_eq" id="628" inline="true">
+                                                                <value name="A">
+                                                                  <block type="variables_get" id="629">
+                                                                    <field name="VAR">音の種類</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="math_number" id="630">
+                                                                    <field name="NUM">1</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="THEN">
+                                                              <block type="looks_say" id="631" inline="true">
+                                                                <value name="TEXT">
+                                                                  <block type="text" id="632">
+                                                                    <field name="TEXT">ド！</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="control_if" id="633" inline="true">
+                                                                <value name="COND">
+                                                                  <block type="operators_compare_eq" id="634" inline="true">
+                                                                    <value name="A">
+                                                                      <block type="variables_get" id="635">
+                                                                        <field name="VAR">音の種類</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="B">
+                                                                      <block type="math_number" id="636">
+                                                                        <field name="NUM">2</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="THEN">
+                                                                  <block type="looks_say" id="637" inline="true">
+                                                                    <value name="TEXT">
+                                                                      <block type="text" id="638">
+                                                                        <field name="TEXT">レ！</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </statement>
+                                                                <next>
+                                                                  <block type="control_if" id="639" inline="true">
+                                                                    <value name="COND">
+                                                                      <block type="operators_compare_eq" id="640" inline="true">
+                                                                        <value name="A">
+                                                                          <block type="variables_get" id="641">
+                                                                            <field name="VAR">音の種類</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="B">
+                                                                          <block type="math_number" id="642">
+                                                                            <field name="NUM">3</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="THEN">
+                                                                      <block type="looks_say" id="643" inline="true">
+                                                                        <value name="TEXT">
+                                                                          <block type="text" id="644">
+                                                                            <field name="TEXT">ミ！</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                    <next>
+                                                                      <block type="control_sleep" id="645" inline="true">
+                                                                        <value name="SEC">
+                                                                          <block type="math_number" id="646">
+                                                                            <field name="NUM">2</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="control_if_else" id="660" inline="true">
+                                                                            <value name="COND">
+                                                                              <block type="operators_compare_eq" id="692" inline="true">
+                                                                                <value name="A">
+                                                                                  <block type="variables_get" id="735">
+                                                                                    <field name="VAR">回答</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="B">
+                                                                                  <block type="variables_get" id="736">
+                                                                                    <field name="VAR">音の種類</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <statement name="THEN">
+                                                                              <block type="looks_say" id="737" inline="true">
+                                                                                <value name="TEXT">
+                                                                                  <block type="text" id="738">
+                                                                                    <field name="TEXT">正解！</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </statement>
+                                                                            <statement name="ELSE">
+                                                                              <block type="looks_say" id="739" inline="true">
+                                                                                <value name="TEXT">
+                                                                                  <block type="text" id="740">
+                                                                                    <field name="TEXT">はずれ〜</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
