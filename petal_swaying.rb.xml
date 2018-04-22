@@ -1,0 +1,182 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="71" y="13" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <block type="variables_set" id="141" inline="true" x="62" y="36">
+    <field name="VAR">カウント</field>
+    <value name="VALUE">
+      <block type="math_number" id="142">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="419" inline="true">
+        <field name="VAR">スピード調整</field>
+        <value name="VALUE">
+          <block type="math_number" id="422">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="character_new" id="1" x="60" y="141">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="2">
+        <statement name="DO">
+          <block type="control_loop" id="693">
+            <statement name="DO">
+              <block type="motion_set_y" id="576" inline="true">
+                <value name="Y">
+                  <block type="math_number" id="577">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="looks_show" id="729">
+                    <next>
+                      <block type="control_loop" id="193">
+                        <statement name="DO">
+                          <block type="variables_set" id="194" inline="true">
+                            <field name="VAR">カウント</field>
+                            <value name="VALUE">
+                              <block type="operators_add" id="227" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="228">
+                                    <field name="VAR">カウント</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="195">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_set_x" id="299" inline="true">
+                                <value name="X">
+                                  <block type="operators_add" id="367" inline="true">
+                                    <value name="A">
+                                      <block type="operators_multiply" id="174" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="138">
+                                            <field name="NUM">240</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="operators_math_method" id="137" inline="true">
+                                            <field name="METHOD">Math.sin(%num%)</field>
+                                            <value name="NUM">
+                                              <block type="operators_divide" id="260" inline="true">
+                                                <value name="A">
+                                                  <block type="variables_get" id="179">
+                                                    <field name="VAR">カウント</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="operators_multiply" id="525" inline="true">
+                                                    <value name="A">
+                                                      <block type="variables_get" id="429">
+                                                        <field name="VAR">スピード調整</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="526">
+                                                        <field name="NUM">2</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="368">
+                                        <field name="NUM">270</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_change_y_by" id="404" inline="true">
+                                    <value name="Y">
+                                      <block type="operators_multiply" id="413" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="414">
+                                            <field name="NUM">3</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="operators_add" id="410" inline="true">
+                                            <value name="A">
+                                              <block type="operators_math_method" id="406" inline="true">
+                                                <field name="METHOD">Math.sin(%num%)</field>
+                                                <value name="NUM">
+                                                  <block type="operators_divide" id="407" inline="true">
+                                                    <value name="A">
+                                                      <block type="variables_get" id="408">
+                                                        <field name="VAR">カウント</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="variables_get" id="430">
+                                                        <field name="VAR">スピード調整</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="412">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_if" id="540" inline="true">
+                                        <value name="COND">
+                                          <block type="sensing_reach_wall" id="603"></block>
+                                        </value>
+                                        <statement name="THEN">
+                                          <block type="control_break" id="743"></block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="looks_hide" id="679">
+                            <next>
+                              <block type="control_sleep" id="707" inline="true">
+                                <value name="SEC">
+                                  <block type="math_number" id="708">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
