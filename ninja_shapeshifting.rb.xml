@@ -1,0 +1,181 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="247" y="155" name="ryu1" costumes="忍者:ryu1.png,かえる:frog1.png" angle="0"></character>
+  <block type="variables_set" id="24" inline="true" x="111" y="30">
+    <field name="VAR">クリック数</field>
+    <value name="VALUE">
+      <block type="math_number" id="56">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="character_new" id="1" x="113" y="92">
+    <field name="NAME">ryu1</field>
+    <statement name="DO">
+      <block type="events_on_click" id="20">
+        <statement name="DO">
+          <block type="variables_set" id="108" inline="true">
+            <field name="VAR">クリック数</field>
+            <value name="VALUE">
+              <block type="operators_add" id="141" inline="true">
+                <value name="A">
+                  <block type="variables_get" id="148">
+                    <field name="VAR">クリック数</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="109">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="control_if_else" id="371" inline="true">
+                <value name="COND">
+                  <block type="operators_compare_gt" id="322" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="290">
+                        <field name="VAR">クリック数</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="354">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="355" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="357">
+                        <field name="TEXT">どろん！</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="485" inline="true">
+                        <field name="VAR">クリック数</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="486">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="looks_next_costume" id="392"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="variables_set" id="23" inline="true">
+                    <field name="VAR">セリフ</field>
+                    <value name="VALUE">
+                      <block type="text" id="88">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control_times" id="106" inline="true">
+                        <value name="COUNT">
+                          <block type="variables_get" id="149">
+                            <field name="VAR">クリック数</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="control_if" id="406" inline="true">
+                            <value name="COND">
+                              <block type="operators_compare_eq" id="483" inline="true">
+                                <value name="A">
+                                  <block type="sensing_character_property" id="439">
+                                    <field name="CHAR">ryu1</field>
+                                    <field name="PROPERTY">costume</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="text" id="495">
+                                    <field name="TEXT">忍者</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="THEN">
+                              <block type="variables_set" id="150" inline="true">
+                                <field name="VAR">セリフ</field>
+                                <value name="VALUE">
+                                  <block type="operators_add" id="221" inline="true">
+                                    <value name="A">
+                                      <block type="variables_get" id="189">
+                                        <field name="VAR">セリフ</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="151">
+                                        <field name="TEXT">にん！</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="control_if" id="487" inline="true">
+                                <value name="COND">
+                                  <block type="operators_compare_eq" id="496" inline="true">
+                                    <value name="A">
+                                      <block type="sensing_character_property" id="497">
+                                        <field name="CHAR">ryu1</field>
+                                        <field name="PROPERTY">costume</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="text" id="498">
+                                        <field name="TEXT">かえる</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="THEN">
+                                  <block type="variables_set" id="491" inline="true">
+                                    <field name="VAR">セリフ</field>
+                                    <value name="VALUE">
+                                      <block type="operators_add" id="492" inline="true">
+                                        <value name="A">
+                                          <block type="variables_get" id="493">
+                                            <field name="VAR">セリフ</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="text" id="494">
+                                            <field name="TEXT">ケロ！</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="looks_say" id="242" inline="true">
+                            <value name="TEXT">
+                              <block type="variables_get" id="275">
+                                <field name="VAR">セリフ</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
