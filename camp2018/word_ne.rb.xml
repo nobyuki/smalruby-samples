@@ -1,0 +1,375 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="0" y="0" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="0" y="0" name="cat2" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="0" y="0" name="cat3" costumes="costume1:cat1.png" angle="0"></character>
+  <block type="variables_set" id="1221" inline="true" x="-30" y="4">
+    <field name="VAR">スタート</field>
+    <value name="VALUE">
+      <block type="operators_false" id="1222"></block>
+    </value>
+    <next>
+      <block type="variables_set" id="1223" inline="true">
+        <field name="VAR">ストップ</field>
+        <value name="VALUE">
+          <block type="operators_false" id="1224"></block>
+        </value>
+        <next>
+          <block type="variables_set" id="1225" inline="true">
+            <field name="VAR">速さ</field>
+            <value name="VALUE">
+              <block type="math_number" id="1226">
+                <field name="NUM">30</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="character_new" id="1227" x="-30" y="144">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1228">
+        <statement name="DO">
+          <block type="motion_set_x_y" id="1229" inline="true">
+            <value name="X">
+              <block type="math_number" id="1230">
+                <field name="NUM">80</field>
+              </block>
+            </value>
+            <value name="Y">
+              <block type="math_number" id="1231">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <next>
+              <block type="looks_say" id="1232" inline="true">
+                <value name="TEXT">
+                  <block type="text" id="1233">
+                    <field name="TEXT">ぼくをあててね！</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_sleep" id="1234" inline="true">
+                    <value name="SEC">
+                      <block type="math_number" id="1235">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="looks_say" id="1236" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="1237">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="1238" inline="true">
+                            <field name="VAR">スタート</field>
+                            <value name="VALUE">
+                              <block type="operators_true" id="1239"></block>
+                            </value>
+                            <next>
+                              <block type="control_times" id="1240" inline="true">
+                                <value name="COUNT">
+                                  <block type="math_number" id="1241">
+                                    <field name="NUM">10</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="motion_set_angle" id="1242" inline="true">
+                                    <value name="ANGLE">
+                                      <block type="operators_rand" id="1243" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="1244">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="1245">
+                                            <field name="NUM">360</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_times" id="1246" inline="true">
+                                        <value name="COUNT">
+                                          <block type="math_number" id="1247">
+                                            <field name="NUM">10</field>
+                                          </block>
+                                        </value>
+                                        <statement name="DO">
+                                          <block type="motion_move" id="1248" inline="true">
+                                            <value name="STEP">
+                                              <block type="variables_get" id="1249">
+                                                <field name="VAR">速さ</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="motion_turn_if_reach_wall" id="1250">
+                                                <next>
+                                                  <block type="control_await" id="1251"></block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="variables_set" id="1252" inline="true">
+                                    <field name="VAR">ストップ</field>
+                                    <value name="VALUE">
+                                      <block type="operators_true" id="1253"></block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_click" id="1254">
+            <statement name="DO">
+              <block type="control_if" id="1255" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="1256">
+                    <field name="VAR">ストップ</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="1257" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1258">
+                        <field name="TEXT">ね</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1259" x="458" y="148">
+    <field name="NAME">cat2</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1260">
+        <statement name="DO">
+          <block type="motion_set_x_y" id="1261" inline="true">
+            <value name="X">
+              <block type="math_number" id="1262">
+                <field name="NUM">280</field>
+              </block>
+            </value>
+            <value name="Y">
+              <block type="math_number" id="1263">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_await_until" id="1264" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="1265">
+                    <field name="VAR">スタート</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_times" id="1266" inline="true">
+                    <value name="COUNT">
+                      <block type="math_number" id="1267">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="motion_set_angle" id="1268" inline="true">
+                        <value name="ANGLE">
+                          <block type="operators_rand" id="1269" inline="true">
+                            <value name="A">
+                              <block type="math_number" id="1270">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="1271">
+                                <field name="NUM">360</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="control_times" id="1272" inline="true">
+                            <value name="COUNT">
+                              <block type="math_number" id="1273">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="motion_move" id="1274" inline="true">
+                                <value name="STEP">
+                                  <block type="variables_get" id="1275">
+                                    <field name="VAR">速さ</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_turn_if_reach_wall" id="1276">
+                                    <next>
+                                      <block type="control_await" id="1277"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_click" id="1278">
+            <statement name="DO">
+              <block type="control_if" id="1279" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="1280">
+                    <field name="VAR">ストップ</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="1281" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1282">
+                        <field name="TEXT">の</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="1283" x="944" y="147">
+    <field name="NAME">cat3</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1284">
+        <statement name="DO">
+          <block type="motion_set_x_y" id="1285" inline="true">
+            <value name="X">
+              <block type="math_number" id="1286">
+                <field name="NUM">480</field>
+              </block>
+            </value>
+            <value name="Y">
+              <block type="math_number" id="1287">
+                <field name="NUM">200</field>
+              </block>
+            </value>
+            <next>
+              <block type="control_await_until" id="1288" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="1289">
+                    <field name="VAR">スタート</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="control_times" id="1290" inline="true">
+                    <value name="COUNT">
+                      <block type="math_number" id="1291">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="motion_set_angle" id="1292" inline="true">
+                        <value name="ANGLE">
+                          <block type="operators_rand" id="1293" inline="true">
+                            <value name="A">
+                              <block type="math_number" id="1294">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="1295">
+                                <field name="NUM">360</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="control_times" id="1296" inline="true">
+                            <value name="COUNT">
+                              <block type="math_number" id="1297">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="motion_move" id="1298" inline="true">
+                                <value name="STEP">
+                                  <block type="variables_get" id="1299">
+                                    <field name="VAR">速さ</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_turn_if_reach_wall" id="1300">
+                                    <next>
+                                      <block type="control_await" id="1301"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_click" id="1302">
+            <statement name="DO">
+              <block type="control_if" id="1303" inline="true">
+                <value name="COND">
+                  <block type="variables_get" id="1304">
+                    <field name="VAR">ストップ</field>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="1305" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1306">
+                        <field name="TEXT">だ</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

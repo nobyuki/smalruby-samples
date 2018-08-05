@@ -1,0 +1,382 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="0" y="126" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <character x="0" y="0" name="shot" costumes="サッカー:ball1.png,やきゅう:ball2.png,バスケット:ball3.png,バレー:ball4.png,テニス:ball6.png" costume_index="4" angle="0"></character>
+  <character x="562" y="140" name="item" costumes="サッカー:ball1.png,やきゅう:ball2.png,バスケット:ball3.png,バレー:ball4.png,テニス:ball6.png" costume_index="4" angle="0"></character>
+  <block type="variables_set" id="847" inline="true" x="34" y="-5">
+    <field name="VAR">速度</field>
+    <value name="VALUE">
+      <block type="math_number" id="848">
+        <field name="NUM">-10</field>
+      </block>
+    </value>
+  </block>
+  <block type="character_new" id="849" x="-200" y="55">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="1128">
+        <statement name="DO">
+          <block type="control_loop" id="1103">
+            <statement name="DO">
+              <block type="control_if_else" id="1114" inline="true">
+                <value name="COND">
+                  <block type="operators_compare_eq" id="1115" inline="true">
+                    <value name="A">
+                      <block type="sensing_character_property" id="1116">
+                        <field name="CHAR">shot</field>
+                        <field name="PROPERTY">costume</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="1117">
+                        <field name="TEXT">バスケット</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="looks_say" id="1118" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1119">
+                        <field name="TEXT">ま</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="looks_say" id="1120" inline="true">
+                    <value name="TEXT">
+                      <block type="text" id="1121">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="850">
+            <field name="KEY">K_DOWN</field>
+            <field name="POD">down</field>
+            <statement name="DO">
+              <block type="motion_change_y_by" id="851" inline="true">
+                <value name="Y">
+                  <block type="math_number" id="852">
+                    <field name="NUM">20</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="events_on_key_push_or_down" id="853">
+                <field name="KEY">K_UP</field>
+                <field name="POD">down</field>
+                <statement name="DO">
+                  <block type="motion_change_y_by" id="854" inline="true">
+                    <value name="Y">
+                      <block type="math_number" id="855">
+                        <field name="NUM">-20</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="891" x="922" y="58">
+    <field name="NAME">shot</field>
+    <statement name="DO">
+      <block type="events_on_start" id="892">
+        <statement name="DO">
+          <block type="looks_hide" id="893"></block>
+        </statement>
+        <next>
+          <block type="events_on_key_push_or_down" id="894">
+            <field name="KEY">K_SPACE</field>
+            <field name="POD">down</field>
+            <statement name="DO">
+              <block type="motion_set_x" id="895" inline="true">
+                <value name="X">
+                  <block type="sensing_character_property" id="896">
+                    <field name="CHAR">cat1</field>
+                    <field name="PROPERTY">x</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_y" id="897" inline="true">
+                    <value name="Y">
+                      <block type="sensing_character_property" id="898">
+                        <field name="CHAR">cat1</field>
+                        <field name="PROPERTY">y</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="looks_show" id="899">
+                        <next>
+                          <block type="control_loop" id="900">
+                            <statement name="DO">
+                              <block type="motion_move" id="901" inline="true">
+                                <value name="STEP">
+                                  <block type="math_number" id="902">
+                                    <field name="NUM">40</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="control_if" id="903" inline="true">
+                                    <value name="COND">
+                                      <block type="sensing_reach_wall" id="904"></block>
+                                    </value>
+                                    <statement name="THEN">
+                                      <block type="control_break" id="905"></block>
+                                    </statement>
+                                    <next>
+                                      <block type="control_if" id="906" inline="true">
+                                        <value name="COND">
+                                          <block type="sensing_hit" id="907">
+                                            <field name="CHAR">item</field>
+                                          </block>
+                                        </value>
+                                        <statement name="THEN">
+                                          <block type="character_new" id="908">
+                                            <field name="NAME">item</field>
+                                            <statement name="DO">
+                                              <block type="looks_next_costume" id="909"></block>
+                                            </statement>
+                                            <next>
+                                              <block type="variables_set" id="910" inline="true">
+                                                <field name="VAR">速度</field>
+                                                <value name="VALUE">
+                                                  <block type="math_number" id="911">
+                                                    <field name="NUM">12</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="control_break" id="912"></block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="looks_hide" id="913"></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="character_new" id="856" x="254" y="208">
+    <field name="NAME">item</field>
+    <statement name="DO">
+      <block type="events_on_start" id="857">
+        <statement name="DO">
+          <block type="control_loop" id="858">
+            <statement name="DO">
+              <block type="control_if_else" id="859" inline="true">
+                <value name="COND">
+                  <block type="operators_compare_gt" id="860" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="861">
+                        <field name="VAR">速度</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="862">
+                        <field name="NUM">-10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="THEN">
+                  <block type="variables_set" id="863" inline="true">
+                    <field name="VAR">速度</field>
+                    <value name="VALUE">
+                      <block type="operators_minus" id="864" inline="true">
+                        <value name="A">
+                          <block type="variables_get" id="865">
+                            <field name="VAR">速度</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="866">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="variables_set" id="867" inline="true">
+                    <field name="VAR">速度</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="868">
+                        <field name="NUM">-10</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="control_if_else" id="927" inline="true">
+                    <value name="COND">
+                      <block type="operators_compare_eq" id="1004" inline="true">
+                        <value name="A">
+                          <block type="sensing_character_property" id="940">
+                            <field name="CHAR">item</field>
+                            <field name="PROPERTY">costume</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="972">
+                            <field name="TEXT">バスケット</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="THEN">
+                      <block type="looks_say" id="1025" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="1026">
+                            <field name="TEXT">ま</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="looks_say" id="1027" inline="true">
+                        <value name="TEXT">
+                          <block type="text" id="1028">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="motion_change_x_by" id="869" inline="true">
+                        <value name="X">
+                          <block type="variables_get" id="870">
+                            <field name="VAR">速度</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="events_on_hit" id="871">
+            <field name="CHAR">cat1</field>
+            <statement name="DO">
+              <block type="looks_hide" id="872">
+                <next>
+                  <block type="character_new" id="873">
+                    <field name="NAME">shot</field>
+                    <statement name="DO">
+                      <block type="looks_switch_costume" id="874">
+                        <field name="COSTUME">最初のコスチューム</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="control_times" id="875" inline="true">
+                        <value name="COUNT">
+                          <block type="sensing_character_property" id="876">
+                            <field name="CHAR">item</field>
+                            <field name="PROPERTY">costume_index</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="character_new" id="877">
+                            <field name="NAME">shot</field>
+                            <statement name="DO">
+                              <block type="looks_next_costume" id="878"></block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="control_sleep" id="879" inline="true">
+                            <value name="SEC">
+                              <block type="math_number" id="880">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_set_x" id="881" inline="true">
+                                <value name="X">
+                                  <block type="math_number" id="882">
+                                    <field name="NUM">562</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_set_y" id="883" inline="true">
+                                    <value name="Y">
+                                      <block type="operators_rand" id="884" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="885">
+                                            <field name="NUM">100</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="886">
+                                            <field name="NUM">300</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="887" inline="true">
+                                        <field name="VAR">速度</field>
+                                        <value name="VALUE">
+                                          <block type="math_number" id="888">
+                                            <field name="NUM">-10</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="looks_switch_costume" id="889">
+                                            <field name="COSTUME">最初のコスチューム</field>
+                                            <next>
+                                              <block type="looks_show" id="890"></block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

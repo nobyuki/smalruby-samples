@@ -1,0 +1,283 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <character x="-5" y="305" name="cat1" costumes="costume1:cat1.png" angle="0"></character>
+  <block type="variables_set" id="42" inline="true" x="83" y="58">
+    <field name="VAR">カウント</field>
+    <value name="VALUE">
+      <block type="math_number" id="485">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="character_new" id="1" x="84" y="131">
+    <field name="NAME">cat1</field>
+    <statement name="DO">
+      <block type="events_on_start" id="2">
+        <statement name="DO">
+          <block type="control_times" id="507" inline="true">
+            <value name="COUNT">
+              <block type="math_number" id="508">
+                <field name="NUM">40</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set" id="76" inline="true">
+                <field name="VAR">カウント</field>
+                <value name="VALUE">
+                  <block type="operators_add" id="140" inline="true">
+                    <value name="A">
+                      <block type="variables_get" id="96">
+                        <field name="VAR">カウント</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="ruby_expression" id="484">
+                        <field name="EXP">0.1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="motion_set_x" id="251" inline="true">
+                    <value name="X">
+                      <block type="operators_multiply" id="447" inline="true">
+                        <value name="A">
+                          <block type="math_number" id="448">
+                            <field name="NUM">45</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get" id="141">
+                            <field name="VAR">カウント</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="motion_set_y" id="214" inline="true">
+                        <value name="Y">
+                          <block type="operators_multiply" id="284" inline="true">
+                            <value name="A">
+                              <block type="math_number" id="415">
+                                <field name="NUM">150</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="operators_add" id="349" inline="true">
+                                <value name="A">
+                                  <block type="operators_math_method" id="316" inline="true">
+                                    <field name="METHOD">Math.cos(%num%)</field>
+                                    <value name="NUM">
+                                      <block type="variables_get" id="382">
+                                        <field name="VAR">カウント</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="381">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="control_await" id="522"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="pen_set_pen_color" id="493">
+                <field name="COLOUR">#330033</field>
+                <next>
+                  <block type="pen_down_pen" id="541">
+                    <next>
+                      <block type="control_times" id="523" inline="true">
+                        <value name="COUNT">
+                          <block type="math_number" id="524">
+                            <field name="NUM">35</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="variables_set" id="525" inline="true">
+                            <field name="VAR">カウント</field>
+                            <value name="VALUE">
+                              <block type="operators_add" id="526" inline="true">
+                                <value name="A">
+                                  <block type="variables_get" id="527">
+                                    <field name="VAR">カウント</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="ruby_expression" id="528">
+                                    <field name="EXP">0.1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="motion_set_x" id="529" inline="true">
+                                <value name="X">
+                                  <block type="operators_multiply" id="530" inline="true">
+                                    <value name="A">
+                                      <block type="math_number" id="531">
+                                        <field name="NUM">45</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="variables_get" id="532">
+                                        <field name="VAR">カウント</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="motion_set_y" id="533" inline="true">
+                                    <value name="Y">
+                                      <block type="operators_multiply" id="534" inline="true">
+                                        <value name="A">
+                                          <block type="math_number" id="535">
+                                            <field name="NUM">150</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="operators_add" id="536" inline="true">
+                                            <value name="A">
+                                              <block type="operators_math_method" id="537" inline="true">
+                                                <field name="METHOD">Math.cos(%num%)</field>
+                                                <value name="NUM">
+                                                  <block type="variables_get" id="538">
+                                                    <field name="VAR">カウント</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="539">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control_await" id="540"></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="pen_up_pen" id="545">
+                            <next>
+                              <block type="control_times" id="546" inline="true">
+                                <value name="COUNT">
+                                  <block type="math_number" id="547">
+                                    <field name="NUM">45</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="variables_set" id="548" inline="true">
+                                    <field name="VAR">カウント</field>
+                                    <value name="VALUE">
+                                      <block type="operators_add" id="549" inline="true">
+                                        <value name="A">
+                                          <block type="variables_get" id="550">
+                                            <field name="VAR">カウント</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="ruby_expression" id="551">
+                                            <field name="EXP">0.1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="motion_set_x" id="552" inline="true">
+                                        <value name="X">
+                                          <block type="operators_multiply" id="553" inline="true">
+                                            <value name="A">
+                                              <block type="math_number" id="554">
+                                                <field name="NUM">45</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="555">
+                                                <field name="VAR">カウント</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="motion_set_y" id="556" inline="true">
+                                            <value name="Y">
+                                              <block type="operators_multiply" id="557" inline="true">
+                                                <value name="A">
+                                                  <block type="math_number" id="558">
+                                                    <field name="NUM">150</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="operators_add" id="559" inline="true">
+                                                    <value name="A">
+                                                      <block type="operators_math_method" id="560" inline="true">
+                                                        <field name="METHOD">Math.cos(%num%)</field>
+                                                        <value name="NUM">
+                                                          <block type="variables_get" id="561">
+                                                            <field name="VAR">カウント</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="562">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="control_await" id="563"></block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="looks_say" id="619" inline="true">
+                                    <value name="TEXT">
+                                      <block type="text" id="620">
+                                        <field name="TEXT">なんて書いてあるかな？</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
